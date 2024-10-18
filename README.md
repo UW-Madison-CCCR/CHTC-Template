@@ -8,6 +8,12 @@ This guide will show you how to:
 3. Split your project up into discrete **jobs**
 4. Run your project through CHTC
 
+If you do not have a CHTC account yet, you can apply for one [here](https://chtc.cs.wisc.edu/uw-research-computing/form.html).
+
 ## Configuring the Project's Build
 
-In order to run any program through CHTC, you need to install the [software](https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc) that your program needs.
+In order to run any program through CHTC, you need to install the [software](https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc) that your program needs. 
+
+To bring your necessary software onto CHTC, you need to create a **container**. Containers hold information like general software (like Python) or libraries for this software  (like pandas or numpy in Python). CHTC accepts two forms of containers: Apptainers (which this guide will focus on) and Docker images.
+
+All materials to follow along with this section of the guide can be found in the **build** folder in this repository.
