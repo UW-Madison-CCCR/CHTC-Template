@@ -47,3 +47,13 @@ The two statements for `request_memory` and `request_disk` specify how much RAM 
 For more information about the build submit file, see [CHTC's overview](https://chtc.cs.wisc.edu/uw-research-computing/inter-submit). 
 
 ### Running your Build Job
+
+This step will give you some exposure to running basic jobs through CHTC. In this case, we want to transfer our build files to CHTC and create a container for our version of Python and the packages we want to install. This will create a file called **container.sif** that will be used in running Python scripts.
+
+First, you need to open Cyberduck (or your file transfer application of choice) and [connect to CHTC](https://chtc.cs.wisc.edu/uw-research-computing/connecting).
+
+If you're using Cyberduck, click "Open Connection" in the top navigation bar. In the first dropdown menu, select "SFTP (SSH File Transfer Protocol)" instead of the default "FTP (File Transfer Protocol)." For "server," input the server your account is associated with. In most cases, this will be "ap2001.chtc.wisc.edu." Finally, input your NetID username and password, then click "Connect."
+
+After confirming the connection, drag the **build** folder from this repository into the home directory in Cyberduck.
+
+Next, open Terminal.
