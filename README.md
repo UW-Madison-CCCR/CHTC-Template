@@ -8,9 +8,11 @@ This guide will show you how to:
 3. Split your project up into discrete **jobs**
 4. Run your project through CHTC
 
+This basic example project will use Python and the [pandas](https://pandas.pydata.org) package to run some basic operations on  weather data found in [vega datasets](https://github.com/vega/vega-datasets/tree/main).
+
 If you do not have a CHTC account yet, you can apply for one [here](https://chtc.cs.wisc.edu/uw-research-computing/form.html).
 
-## Configuring the Project's Build
+## 1. Configuring the Project's Build
 
 In order to run any program through CHTC, you need to install the [software](https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc) that your program needs. 
 
