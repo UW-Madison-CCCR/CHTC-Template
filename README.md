@@ -85,4 +85,13 @@ This section will walk you through all steps necessary for building these three 
 In this example script, say we want to convert the temperature data to Fahrenheit and calculate the wind chill for the weather data in **weather.csv**. We would want to use the wind chill formula from [weather.gov](https://www.weather.gov/safety/cold-wind-chill-chart):
 
 $Wind Chill = 35.74 + 0.6215T - 35.75(V^{0.16}) + 0.4275T(V^{0.16})$
+
 Where $T$ is the temperature in Fahrenheit and $V$ is the wind speed
+
+There are a few major requirements we want for the Python file:
+* We want to enclose most of the major operations in a function
+* We want the function call to take a system argument (passed through the shell script)
+
+You can follow along for this section by opening the file **convert_data.py** in the **scripts** folder.
+
+#### a. Setting Up the Function
