@@ -72,4 +72,10 @@ After the interactive job begins, run the following command:
 ```
 apptainer build container.sif pandas.def
 ```
-This will create a container file in your CHTC working directory from the **pandas.def** file you transfered via the submit file.
+This will create a container file in your CHTC working directory from the **pandas.def** file you transfered via the submit file. Once you refresh the directory in Cyberduck, you should see the file **container.sif**. This is the file you need to run your future Python code.
+
+## 2. Creating Python, Shell, and Submit Scripts
+
+Running a Python file requires three layers of scripts: the Python file you want to run, a shell script to run that file, and a submit file telling HTCondor to execute the shell script. 
+
+This section will walk you through all steps necessary for building these three files. All materials can be found in the **scripts** folder.
