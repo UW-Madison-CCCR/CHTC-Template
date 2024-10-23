@@ -56,4 +56,20 @@ If you're using Cyberduck, click "Open Connection" in the top navigation bar. In
 
 After confirming the connection, drag the **build** folder from this repository into the home directory in Cyberduck.
 
-Next, open Terminal.
+Next, open Terminal. You will need to connect to the CHTC server with the following command:
+```
+ssh {NetID username}@{CHTC server}
+```
+Replace {NetID username} with your NetID username and {CHTC server} with the CHTC server your account is associated with (either ap2001.chtc.wisc.edu or ap2002.chtc.wisc.edu). After connecting, enter your NetID password.
+
+After you connected to the CHTC server, run the following command in Terminal:
+```
+condor_submit -i build/build.sub
+```
+This will open an interactive job using the **build.sub** submit file in the **build** folder.
+
+After the interactive job begins, run the following command:
+```
+apptainer build container.sif pandas.def
+```
+This will create a container file in your CHTC working directory from the **pandas.def** file you transfered via the submit file.
