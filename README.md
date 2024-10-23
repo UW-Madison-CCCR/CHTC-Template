@@ -3,8 +3,8 @@
 This project provides a basic guide to running a Python project through UW's Center for High-Throughput Computing.
 
 This guide will show you how to:
-1. Configure your project's packages through a **build** file
-2. Set up your primary Python scripts, shell scripts, and a **submit** file
+1. [Configure your project's packages through a **build** file](#1-configuring-the-projects-build)
+2. [Set up your primary Python scripts, shell scripts, and a **submit** file](#2-creating-your-scripts)
 3. Split your project up into discrete **jobs**
 4. Run your project through CHTC
 
@@ -74,7 +74,7 @@ apptainer build container.sif pandas.def
 ```
 This will create a container file in your CHTC working directory from the **pandas.def** file you transfered via the submit file. Once you refresh the directory in Cyberduck, you should see the file **container.sif**. This is the file you need to run your future Python code.
 
-## 2. Creating Python, Shell, and Submit Scripts
+## 2. Creating Your Scripts
 
 Running a Python file requires three layers of scripts: the Python file you want to run, a shell script to run that file, and a submit file telling HTCondor to execute the shell script. 
 
