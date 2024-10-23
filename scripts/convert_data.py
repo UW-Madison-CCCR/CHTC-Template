@@ -1,6 +1,12 @@
 import pandas as pd
 import sys
 
+#================================================================
+#
+# Step 1: Set Up the Function
+#
+#================================================================
+
 # convert_data: converts the temperature data to celsius and calculates the wind chill
 # returns a converted dataframe
 '''
@@ -33,6 +39,11 @@ def convert_data(data_path: str):
 
     return df
 
+#================================================================
+#
+# Step 2: Call the Function, Passing a System Argument
+#
+#================================================================
 
 # calls the convert_data function on the specified filepath
 # uses the first system argument passed from the shell script
