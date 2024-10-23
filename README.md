@@ -79,3 +79,10 @@ This will create a container file in your CHTC working directory from the **pand
 Running a Python file requires three layers of scripts: the Python file you want to run, a shell script to run that file, and a submit file telling HTCondor to execute the shell script. 
 
 This section will walk you through all steps necessary for building these three files. All materials can be found in the **scripts** folder.
+
+### Creating the Python Script
+
+In this example script, say we want to convert the temperature data to Fahrenheit and calculate the wind chill for the weather data in **weather.csv**. We would want to use the wind chill formula from [weather.gov](https://www.weather.gov/safety/cold-wind-chill-chart):
+
+$Wind Chill = 35.74 + 0.6215T - 35.75(V^{0.16}) + 0.4275T(V^{0.16})$
+Where $T$ is the temperature in Fahrenheit and $V$ is the wind speed
