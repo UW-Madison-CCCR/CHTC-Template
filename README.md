@@ -110,3 +110,16 @@ There are a few major requirements we want for the Python file:
 You can follow along for this section by opening the file **convert_data.py** in the **scripts** folder.
 
 #### a. Setting Up the Function
+
+The first section of **convert_data.py** shows the basic function setup: the primary operations of the code is encased in a single function, taking an argument for the path for the file to convert. This design allows the program to be widely applicable: it will perform this same basic conversion on any file that is passed to it.
+
+#### b. Passing a System Argument
+
+The second section of the Python script shows how this can be applied: it calls the function using the argument `sys.argv[1]`. This will pass the system-level argument in the first slot (which will be a .csv filepath) from the shell script to the Python function.
+
+### Creating the Shell Script
+
+Next, we need to create a script that will pass the argument to the Python function. This will be a shell script that calls for the computer to execute the Python script with a particular argument.
+
+You can follow along for this section by opening the file **convert_data.sh** in the **scripts** folder.
+

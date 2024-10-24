@@ -8,7 +8,7 @@ import sys
 #================================================================
 
 # convert_data: converts the temperature data to celsius and calculates the wind chill
-# returns a converted dataframe
+# saves the resulting dataframe
 '''
 Arguments:
 * data_path: a string for the filepath to the csv file containing the data to convert
@@ -37,7 +37,9 @@ def convert_data(data_path: str):
     # calculates the wind chill
     df['wind_chill'] = df.apply(lambda x:  calculate_wind_chill(x['temp_f'], x['wind']), axis=1)
 
-    return df
+    # saves the dataframe to a csv file
+    output_name = data_path.replace('.csv', '') # bases name on the input path
+    df.to_csv(f'output_{output_name}.csv')
 
 #================================================================
 #
