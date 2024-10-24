@@ -80,7 +80,14 @@ After the interactive job begins, run the following command:
 ```
 apptainer build container.sif pandas.def
 ```
-This will create a container file in your CHTC working directory from the **pandas.def** file you transfered via the submit file. Once you refresh the directory in Cyberduck, you should see the file **container.sif**. This is the file you need to run your future Python code.
+
+You will see a several lines of text and progress bars in Terminal as the system builds your container. This process will create a container file in your CHTC working directory from the **pandas.def** file you transfered via the submit file. Once you refresh the directory in Cyberduck, you should see the file **container.sif**. This is the file you need to run your future Python code.
+
+After the container finishes building, type the following command in Terminal to exit the interactive session:
+
+```
+exit
+```
 
 ## 2. Creating Your Scripts
 
