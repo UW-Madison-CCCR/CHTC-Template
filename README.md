@@ -5,7 +5,7 @@ This project provides a basic guide to running a Python project through UW's Cen
 This guide will show you how to:
 1. Configure your project's packages through a **build** file [(Jump to Section)](#1-configuring-the-projects-build)
 2. Set up your primary Python scripts, shell scripts, and a **submit** file [(Jump to Section)](#2-creating-your-scripts)
-3. Split your project up into discrete **jobs**
+3. Split your project up into discrete **jobs** [(Jump to Section)](#3-splitting-your-project-into-jobs)
 4. Run your project through CHTC
 
 This basic example project will use Python and the [pandas](https://pandas.pydata.org) package to run some basic operations on  weather data found in [vega datasets](https://github.com/vega/vega-datasets/tree/main).
@@ -178,3 +178,14 @@ request_cpus = 1
 request_memory = 3GB
 request_disk = 5GB
 ```
+
+Python scripts typically do not run well on multiple cores, so you will rarely need to request more than one CPUs. However, the memory (RAM) and disk space you need could vary substantially based on the type of job. You may need to test one job iteratively to determine the memory it needs to finish executing.
+
+#### f. Queuing Multiple Jobs from a File
+
+The final line, `queue file from file_list.txt`, constructs the `$(file)` argument and queues a set of jobs for the list of files you pass it. The submit file uses the file **file_list.txt** to determine the smaller chunks of data --- stored in multiple files --- that HTCondor will pass to the shell script and other parts of the submit file. 
+
+Setting up **file_list.txt** to queue multiple jobs will be discussed more in the next section.
+
+## 3. Splitting Your Project Into Jobs
+
