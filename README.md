@@ -123,3 +123,14 @@ Next, we need to create a script that will pass the argument to the Python funct
 
 You can follow along for this section by opening the file **convert_data.sh** in the **scripts** folder.
 
+#### a. The Shebang
+
+The first line of the script, `#!/bin/bash`, is called "the shebang." This is the part of the script that tells the computer to use `bash` to run the script. If this line is omitted, the computer will not be able to process the rest of the shell script.
+
+#### b. Exporting Paths
+
+The next three lines export in the necessary paths to your version of Python, your Python packages, and your home directory. These will need to be adjusted if you are using software other than Python.
+
+#### c. Running your Script
+
+The final line of the script, `python3 convert_data.py "$1"`, calls for Python to run your .py file, passing in a system-level argument from the submit fill (which will be a .csv filepath).
