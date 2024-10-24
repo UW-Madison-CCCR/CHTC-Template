@@ -151,4 +151,30 @@ The first two lines relate to the executable file, or the program that the submi
 
 The next line `container_image = container.sif` passes the container you built in the [previous section](#1-configuring-the-projects-build) to HTCondor, which will allow you to run Python scripts with the packages you need.
 
-#### c. 
+#### c. Setting the CHTC Output Structure
+
+The following lines specify where HTCondor will put the log, error, and console output files:
+
+```
+log = chtc_output/logs/$(file).log
+error = chtc_output/errors/$(file).err
+output = chtc_output/output/$(file).out
+```
+
+These lines require the file structure to be in your CHTC home directory (you need a **chtc_output** folder with subfolders for **logs**, **errors**, and **output**). This code will take the `$(file)` argument and use it to name the log, error, and output files.
+
+#### d. Transfering Necessary Files
+
+The line `transfer_input_files = scripts/convert_data.py,data/$(file)` tells HTCondor what files to bring with it when it runs a job. This line looks for two files in the home directory: **convert_data.py** in the **scripts** folder and a file with the same name as the `$(file)` argument in the **data** folder.
+
+The list of files is separated with a comma with no space.
+
+#### e. Requesting Computational Resources
+
+The following lines tell HTCondor what resources to give your jobs:
+
+```
+request_cpus = 1
+request_memory = 3GB
+request_disk = 5GB
+```
