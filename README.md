@@ -144,3 +144,11 @@ Finally, we need to create a submit file. Like when creating the Python containe
 You can follow along for this section by opening the file **convert_data.sub** in the **scripts** folder.
 
 #### a. Setting the Executable File and its Arguments
+
+The first two lines relate to the executable file, or the program that the submit file will run. In this case, the line `executable = convert_data.sh` tells HTCondor to run your shell script. The line `arguments = $(file)` tells the system to pass a file argument, specified in the last line of the submit file, to the shell script. In this case, since the shell script needed a `"$1"` argument to pass to the Python script, this line gives the script the argument it needs.
+
+#### b. Setting the Container Image
+
+The next line `container_image = container.sif` passes the container you built in the [previous section](#1-configuring-the-projects-build) to HTCondor, which will allow you to run Python scripts with the packages you need.
+
+#### c. 
