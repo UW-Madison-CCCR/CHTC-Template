@@ -1,0 +1,16 @@
+executable = convert_data.sh
+arguments = $(file)
+
+container_image = container.sif
+
+log = chtc_output/logs/$(file).log
+error = chtc_output/errors/$(file).err
+output = chtc_output/output/$(file).out
+
+transfer_input_files = convert_data.py,data/$(file)
+
+request_cpus = 1
+request_memory = 3GB
+request_disk = 5GB
+
+queue file from file_list.txt

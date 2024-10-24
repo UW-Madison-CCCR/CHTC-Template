@@ -133,4 +133,14 @@ The next three lines export in the necessary paths to your version of Python, yo
 
 #### c. Running your Script
 
-The final line of the script, `python3 convert_data.py "$1"`, calls for Python to run your .py file, passing in a system-level argument from the submit fill (which will be a .csv filepath).
+The final line of the script, `python3 convert_data.py "$1"`, calls for Python to run your .py file, passing in a system-level argument from the submit file (which will be a .csv filepath).
+
+### Creating the Submit File
+
+Finally, we need to create a submit file. Like when creating the Python container, we need a submit file to tell CHTC to run our jobs.
+
+[Submit files](https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs) can be used to send one job, like with the container build, but they can also be used to queue *multiple different jobs*. While you could create multiple submit files, shell scripts, and Python scripts, this approach to designing your jobs will allow you to queue multiple different jobs with just one file at each level (.py, .sh, and .sub).
+
+You can follow along for this section by opening the file **convert_data.sub** in the **scripts** folder.
+
+#### a. Setting the Executable File and its Arguments
