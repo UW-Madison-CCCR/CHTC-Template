@@ -95,6 +95,14 @@ Running a Python file requires three layers of scripts: the Python file you want
 
 This section will walk you through all steps necessary for building these three files. All materials can be found in the **scripts** folder.
 
+### The Big Picture
+
+First, it's important to lay out the specifics of what we need the three layers of scripts (.py, .sh, and .sub) to do.
+
+CHTC helps create more efficient computing workflows by breaking up your data into small chunks and running your code on them in parallel. So, to create the code for this type of workflow, you need it to be versatile. 
+
+Our goals for this section are to create three layers of scripts that all take a general **file** argument for a small chunk of the data. When given this argument, the program uses it to send that file to CHTC and convert it. The .sub file will pass the list of file arguments for each chunk of the data.
+
 ### Creating the Python Script
 
 In this example script, say we want to convert the temperature data to Fahrenheit and calculate the wind chill for the weather data in **weather.csv**. We would want to use the wind chill formula from [weather.gov](https://www.weather.gov/safety/cold-wind-chill-chart):
