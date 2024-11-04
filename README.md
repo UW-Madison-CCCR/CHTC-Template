@@ -30,7 +30,7 @@ At the top of the file, you can see the software and specific version next to "F
 
 Below, you can configure the different Python packages you want to include. The installation command is `python3 -m pip install pandas`, the same command you would run to install packages in the terminal. Adding additional packages would simply require you to separate each package with a space: `python3 -m pip install pandas openpyxl`. 
 
-When listing the additional packages you want to included, **do not** list any packages that are part of the Python standard library. These will cause the build to fail. For a complete list of the Python standard library packages, check this [link](https://docs.python.org/3/library/index.html), but a few notable packages would be:
+When listing the additional packages you want to included, **do not** list any packages that are part of the Python standard library. (Note: the standard library will vary based on your version of Python.) Including these will cause the build to fail. For a complete list of the Python standard library packages, check this [link](https://docs.python.org/3/library/index.html), but a few notable packages would be:
 * `os`
 * `re`
 * `sys`
