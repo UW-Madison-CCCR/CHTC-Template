@@ -24,3 +24,5 @@ for chunk in pd.read_csv(filepath, chunksize=chunksize):
     # saves the new chunk as a dataframe to the output folder
     output_filename = os.path.join(output_folder, f'split_weather_{count}.csv')
     chunk.to_csv(output_filename)
+
+    count += 1 # increases the count iterator
