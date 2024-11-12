@@ -1,4 +1,4 @@
-executable = convert_data.sh
+executable = scripts/convert_data.sh
 arguments = $(file)
 
 container_image = container.sif
