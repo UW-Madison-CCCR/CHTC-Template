@@ -6,7 +6,7 @@ This guide will show you how to:
 1. Configure your project's packages through a **build** file [(Jump to Section)](#1-configuring-the-projects-build)
 2. Set up your primary Python scripts, shell scripts, and a **submit** file [(Jump to Section)](#2-creating-your-scripts)
 3. Split your project up into discrete **jobs** [(Jump to Section)](#3-splitting-your-project-into-jobs)
-4. Run your project through CHTC
+4. Run your project through CHTC [(Jump to Section)](#4-running-your-project)
 
 This basic example project will use Python and the [pandas](https://pandas.pydata.org) package to run some basic operations on  weather data found in [vega datasets](https://github.com/vega/vega-datasets/tree/main).
 
@@ -249,3 +249,19 @@ for chunk in pd.read_csv(filepath, chunksize=chunksize):
 The code functions similarly to the traditional `pd.read_csv` function, but it uses the `chunksize` argument to iteratively read in segments of the dataset. We then process the resulting chunks (each its own dataframe) by saving them to a .csv file in our specified output folder.
 
 #### c. Using Data Splits to Divide Jobs
+
+The last few lines of **split_data.py** complete the final job management step: saving the list of filenames to **file_list.txt**. As mentioned in the [previous section](#2-creating-your-scripts), this list passes the `$(file)` argument to the submit file, the shell script, and the Python file. It essentially manages and cues all jobs we want to run.
+
+Despite its important role, the file is extremely simple. It is a simple text file containing a list of files or job arguments, each separated by a new line.
+
+### Taking Stock of the Split
+
+Now that we've split the data, we can take inventory of what we've set up. Our goal is distribute a number of small jobs across CHTC's network of computational resources, and we've accomplished that by...
+
+1. ... **creating multiple files**. We now have a total of 6 segments of the weather data. Instead of running code on one big dataset, we split it up into multiple pieces for more efficient processing.
+2. ... **creating versatile code**. We also have code that can work with any of these 6 segments of the dataset. Instead of needing to create custom code for each split, we simply pass an argument to reuse the underlying functions. This also makes it easier if we run into any problems. We only need to fix bugs in one place.
+3. ... **queing jobs through a .txt file**. We take advantage of our split data and versatile code by using a list of files to queue each job converting those files separately. Our system will pass the queued file argument to our code, which will work with the data we want it to.
+
+With this all in mind, we can move forward and run all of our code.
+
+## 4. Running Your Project
