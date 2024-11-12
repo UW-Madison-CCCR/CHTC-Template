@@ -310,3 +310,11 @@ If `condor_q` shows that all your jobs have finished running, refresh your Cyber
 If your files ever don't show up, you can check the errors, print logs, or CHTC system logs. We held all of these in the **chtc_output** folder that we sent to Cyberduck.
 
 ### Merging the Output Files
+
+Now that we have all of our individual output files, we need to merge them to create a final workable dataset.
+
+If the resulting dataset is small enough to fit in memory, you can either concatenate the data with the `pd.concat` function (if the initial data structure was tidy and was split via chunking) or merge with `pd.merge` (if another splitting solution was required).
+
+In this case, we can run **merge_output.py** in the base directory to concatenate all the files.
+
+In other cases, if the resulting data is too big to fit into memory, this can be an opportunity to push each smaller dataset to a SQL server or similar cloud database.
