@@ -173,7 +173,7 @@ These lines require the file structure to be in your CHTC home directory (you ne
 
 #### d. Transfering Necessary Files
 
-The line `transfer_input_files = scripts/convert_data.py,data/$(file)` tells HTCondor what files to bring with it when it runs a job. This line looks for two files in the home directory: **convert_data.py** in the **scripts** folder and a file with the same name as the `$(file)` argument in the **data** folder.
+The line `transfer_input_files = scripts/convert_data.py,split_data/$(file)` tells HTCondor what files to bring with it when it runs a job. This line looks for two files in the home directory: **convert_data.py** in the **scripts** folder and a file with the same name as the `$(file)` argument in the **split_data** folder.
 
 The list of files is separated with a comma with no space.
 
@@ -191,7 +191,7 @@ Python scripts typically do not run well on multiple cores, so you will rarely n
 
 #### f. Queuing Multiple Jobs from a File
 
-The final line, `queue file from file_list.txt`, constructs the `$(file)` argument and queues a set of jobs for the list of files you pass it. The submit file uses the file **file_list.txt** to determine the smaller chunks of data --- stored in multiple files --- that HTCondor will pass to the shell script and other parts of the submit file. 
+The final line, `queue file from split_data/file_list.txt`, constructs the `$(file)` argument and queues a set of jobs for the list of files you pass it. The submit file uses the file **file_list.txt** in the **split_data** folder to determine the smaller chunks of data --- stored in multiple files --- that HTCondor will pass to the shell script and other parts of the submit file. 
 
 Setting up **file_list.txt** to queue multiple jobs will be discussed more in the next section.
 
