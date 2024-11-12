@@ -290,10 +290,9 @@ condor_submit scripts/convert_data.sub
 ```
 
 This should display the following lines in Terminal:
-```
-Submitting job(s)......
-6 job(s) submitted to cluster {cluter ID}.
-```
+
+> Submitting job(s)......
+> 6 job(s) submitted to cluster {cluter ID}.
 
 If you want to check the status of your jobs, run the command:
 ```
