@@ -248,6 +248,8 @@ for chunk in pd.read_csv(filepath, chunksize=chunksize):
 
 The code functions similarly to the traditional `pd.read_csv` function, but it uses the `chunksize` argument to iteratively read in segments of the dataset. We then process the resulting chunks (each its own dataframe) by saving them to a .csv file in our specified output folder.
 
+To split the dataset, simply run **split_data.py** through Python.
+
 #### c. Using Data Splits to Divide Jobs
 
 The last few lines of **split_data.py** complete the final job management step: saving the list of filenames to **file_list.txt**. As mentioned in the [previous section](#2-creating-your-scripts), this list passes the `$(file)` argument to the submit file, the shell script, and the Python file. It essentially manages and cues all jobs we want to run.
