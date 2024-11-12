@@ -197,3 +197,14 @@ Setting up **file_list.txt** to queue multiple jobs will be discussed more in th
 
 ## 3. Splitting Your Project Into Jobs
 
+Now that we have the necessary code, we need to split our project into small jobs that CHTC can run in parallel. We already set the infrastructure by allowing for the `$(file)` argument to be passed to each stage of our code. Now we need to divide our data up into multiple files and create the list that will pass it to each job.
+
+This section will walk you through all steps necessary for splitting your data and passing arguments to your jobs. All materials can be found in the **job_management** folder.
+
+### Splitting Data
+
+First, we need to split our data into small chunks for each job to run. While this might not be fully necessary for **weather.csv**, a relatively small file, this becomes a much larger problem when you work with bigger datasets or require more computationally intensive operations.
+
+#### a. Tidy Data Structure Informs the Split
+
+One important skill for working with any type of data is creating datasets that follow [tidy data structure](https://r4ds.had.co.nz/tidy-data.html) (if you want more detail, see [Wickham, 2014](http://www.jstatsoft.org/v59/i10/paper)). This structure
