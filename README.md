@@ -268,6 +268,8 @@ With this all in mind, we can move forward and run all of our code.
 
 We'll be following similar steps in this section to the [Configuring your Build section](#1-configuring-the-projects-build).
 
+### Running the Jobs through CHTC
+
 Like before, if you're using Cyberduck, click "Open Connection" in the top navigation bar. In the first dropdown menu, select "SFTP (SSH File Transfer Protocol)." For "server," input the server your account is associated with, then input your NetID username and password and click "Connect."
 
 Once connected, drag the necessary folders into your CTHC directory. These will include the following folders: **chtc_output** (for managing errors and logs), **scripts** (for the necessary code), and **split_data** (for the datasets and job queing list).
@@ -300,3 +302,9 @@ If you see any "held" jobs, these were prevented from finishing by the system. I
 ```
 condor_q -held
 ```
+
+If `condor_q` shows that all your jobs have finished running, refresh your Cyberduck directory. You should see your 6 output files. You can download these to your CHTC-Template directory.
+
+If your files ever don't show up, you can check the errors, print logs, or CHTC system logs. We held all of these in the **chtc_output** folder that we sent to Cyberduck.
+
+### Merging the Output Files
