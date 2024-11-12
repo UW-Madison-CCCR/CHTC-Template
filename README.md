@@ -265,3 +265,38 @@ Now that we've split the data, we can take inventory of what we've set up. Our g
 With this all in mind, we can move forward and run all of our code.
 
 ## 4. Running Your Project
+
+We'll be following similar steps in this section to the [Configuring your Build section](#1-configuring-the-projects-build).
+
+Like before, if you're using Cyberduck, click "Open Connection" in the top navigation bar. In the first dropdown menu, select "SFTP (SSH File Transfer Protocol)." For "server," input the server your account is associated with, then input your NetID username and password and click "Connect."
+
+Once connected, drag the necessary folders into your CTHC directory. These will include the following folders: **chtc_output** (for managing errors and logs), **scripts** (for the necessary code), and **split_data** (for the datasets and job queing list).
+
+After you get through all the Duo approvals and successfully transfer the folders, open Terminal.
+
+Like with the build, you will need to connect to the CHTC server with the following command:
+```
+ssh {NetID username}@{CHTC server}
+```
+Replace {NetID username} with your NetID username and {CHTC server} with the CHTC server your account is associated with (either ap2001.chtc.wisc.edu or ap2002.chtc.wisc.edu). After connecting, enter your NetID password.
+
+After you connect, run the following command in Terminal:
+```
+condor_submit scripts/convert_data.sub
+```
+
+This should display the following lines in Terminal:
+```
+Submitting job(s)......
+6 job(s) submitted to cluster {cluter ID}.
+```
+
+If you want to check the status of your jobs, run the command:
+```
+condor_q
+```
+
+If you see any "held" jobs, these were prevented from finishing by the system. If you want to see the reasons for this, run the command:
+```
+condor_q -held
+```
