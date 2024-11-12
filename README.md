@@ -262,7 +262,7 @@ Now that we've split the data, we can take inventory of what we've set up. Our g
 
 1. ... **creating multiple files**. We now have a total of 6 segments of the weather data. Instead of running code on one big dataset, we split it up into multiple pieces for more efficient processing.
 2. ... **creating versatile code**. We also have code that can work with any of these 6 segments of the dataset. Instead of needing to create custom code for each split, we simply pass an argument to reuse the underlying functions. This also makes it easier if we run into any problems. We only need to fix bugs in one place.
-3. ... **queing jobs through a .txt file**. We take advantage of our split data and versatile code by using a list of files to queue each job converting those files separately. Our system will pass the queued file argument to our code, which will work with the data we want it to.
+3. ... **queuing jobs through a .txt file**. We take advantage of our split data and versatile code by using a list of files to queue each job converting those files separately. Our system will pass the queued file argument to our code, which will work with the data we want it to.
 
 With this all in mind, we can move forward and run all of our code.
 
@@ -274,7 +274,7 @@ We'll be following similar steps in this section to the [Configuring your Build 
 
 Like before, if you're using Cyberduck, click "Open Connection" in the top navigation bar. In the first dropdown menu, select "SFTP (SSH File Transfer Protocol)." For "server," input the server your account is associated with, then input your NetID username and password and click "Connect."
 
-Once connected, drag the necessary folders into your CTHC directory. These will include the following folders: **chtc_output** (for managing errors and logs), **scripts** (for the necessary code), and **split_data** (for the datasets and job queing list).
+Once connected, drag the necessary folders into your CTHC directory. These will include the following folders: **chtc_output** (for managing errors and logs), **scripts** (for the necessary code), and **split_data** (for the datasets and job queuing list).
 
 After you get through all the Duo approvals and successfully transfer the folders, open Terminal.
 
