@@ -207,4 +207,16 @@ First, we need to split our data into small chunks for each job to run. While th
 
 #### a. Tidy Data Structure Informs the Split
 
-One important skill for working with any type of data is creating datasets that follow [tidy data structure](https://r4ds.had.co.nz/tidy-data.html) (if you want more detail, see [Wickham, 2014](http://www.jstatsoft.org/v59/i10/paper)). This structure
+One important skill for working with any type of data is creating datasets that follow [tidy data structure](https://r4ds.had.co.nz/tidy-data.html) (if you want more detail, see [Wickham, 2014](http://www.jstatsoft.org/v59/i10/paper)). This structure has three major principles:
+
+1. Each observation has its own row (ex. a survey respsondent in a given year)
+2. Each variable has its own column (ex. a respondent's age)
+3. Each type of observational unit has its own table (ex. survey respondents vs social media posts)
+
+Tidy data (like the **weather.csv** file) is useful because all data can essentially be treated the same, since the data contains only one type of observational unit (in this case, cities on a given day). Splitting the data can be done by dividing it into even chunks. This method scales well for large datasets, since you do not even need to read all of the data into memory at the same time to divide it like this.
+
+If your data structure *isn't* tidy, this becomes more difficult. Often, you need to develop custom code to split the dataset after reading it all into memory. These solutions are rarely uniform, because...
+
+> “Tidy datasets are all alike, but every messy dataset is messy in its own way” (Wickham, 2014).
+
+#### b. Splitting Data into Chunks
