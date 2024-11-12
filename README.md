@@ -215,8 +215,37 @@ One important skill for working with any type of data is creating datasets that 
 
 Tidy data (like the **weather.csv** file) is useful because all data can essentially be treated the same, since the data contains only one type of observational unit (in this case, cities on a given day). Splitting the data can be done by dividing it into even chunks. This method scales well for large datasets, since you do not even need to read all of the data into memory at the same time to divide it like this.
 
-If your data structure *isn't* tidy, this becomes more difficult. Often, you need to develop custom code to split the dataset after reading it all into memory. These solutions are rarely uniform, because...
+If your data structure *isn't* tidy, this becomes more difficult. Often, you need to develop custom code to split the dataset after reading it all into memory. These solutions are rarely uniform.
 
 > “Tidy datasets are all alike, but every messy dataset is messy in its own way” (Wickham, 2014).
 
 #### b. Splitting Data into Chunks
+
+Since we have a tidy dataset, we can proceed with a chunk-based method of splitting our data. So, we can develop a Python script to read the larger file in chunk-by-chunk and save those chunks to a folder that we can sent to CHTC.
+
+You can follow along for this section by opening the file **split_data.py** in the **job_management** folder.
+
+The following line is a useful starting point, because it determines how many rows will be in each chunk of the data:
+
+```
+chunksize = 500
+```
+
+This number was selected to demonstrate the chunking process, and it is deliberately small because there are only around 3,000 rows in the full dataset. When adapting this to your own code, the number will be much larger. The number of rows will vary based on the computational intensity of the jobs you want to run.
+
+The next major block of code then uses the parameters we specified to read in the data chunk-by-chunk.
+
+```
+count = 0 # sets up an iteration counter to name the files
+for chunk in pd.read_csv(filepath, chunksize=chunksize):
+
+    # saves the new chunk as a dataframe to the output folder
+    output_filename = os.path.join(output_folder, f'weather_{count}.csv')
+    chunk.to_csv(output_filename)
+
+    count += 1 # increases the count
+```
+
+The code functions similarly to the traditional `pd.read_csv` function, but it uses the `chunksize` argument to iteratively read in segments of the dataset. We then process the resulting chunks (each its own dataframe) by saving them to a .csv file in our specified output folder.
+
+#### c. Using Data Splits to Divide Jobs

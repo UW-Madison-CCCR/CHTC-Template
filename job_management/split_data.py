@@ -18,14 +18,14 @@ filepath = os.path.join('..', 'weather.csv')
 # sets the output folder where each chunk will be saved
 output_folder = os.path.join('..', 'split_data')
 
-count = 0 # sets up an iterator to name the files
+count = 0 # sets up an iteration counter to name the files
 for chunk in pd.read_csv(filepath, chunksize=chunksize):
 
     # saves the new chunk as a dataframe to the output folder
     output_filename = os.path.join(output_folder, f'weather_{count}.csv')
     chunk.to_csv(output_filename)
 
-    count += 1 # increases the count iterator
+    count += 1 # increases the count
 
 #================================================================
 #
