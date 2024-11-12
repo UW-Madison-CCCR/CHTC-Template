@@ -209,7 +209,7 @@ First, we need to split our data into small chunks for each job to run. While th
 
 One important skill for working with any type of data is creating datasets that follow [tidy data structure](https://r4ds.had.co.nz/tidy-data.html) (if you want more detail, see [Wickham, 2014](http://www.jstatsoft.org/v59/i10/paper)). This structure has three major principles:
 
-1. Each observation has its own row (ex. a survey respsondent in a given year)
+1. Each observation has its own row (ex. a survey respondent in a given year)
 2. Each variable has its own column (ex. a respondent's age)
 3. Each type of observational unit has its own table (ex. survey respondents vs social media posts)
 
